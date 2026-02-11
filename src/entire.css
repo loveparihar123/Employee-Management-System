@@ -1,0 +1,7 @@
+.all-list::-webkit-scrollbar {
+  display: none;
+}
+.all-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

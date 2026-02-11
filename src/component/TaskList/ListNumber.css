@@ -1,0 +1,9 @@
+#taskList::-webkit-scrollbar {
+  display: none;
+}
+#taskList {
+  scrollbar-width: none;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
