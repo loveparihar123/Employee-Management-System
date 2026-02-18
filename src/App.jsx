@@ -2,52 +2,79 @@ import { useContext, useEffect, useState } from "react";
 import Login from "./component/Auth/Login";
 import AdminDashboard from "./component/Dashboard/AdminDashboard";
 import EmployeeDashboard from "./component/Dashboard/EmployeeDashboard";
-import { getLocalStorage, setLocalStorage } from "./utils/Localstorage";
 import { authContext } from "./Context/AuthProvider";
 function App() {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setloggedInUserData] = useState(null);
-  const [userData, setUserData] = useContext(authContext);
+  const [userData, setUserData, loading] = useContext(authContext);
 
   useEffect(() => {
-    setLocalStorage();
-    const loggedInUser = localStorage.getItem("loggedInUser");
-    if (loggedInUser) {
-      const usersData = JSON.parse(loggedInUser);
-      setUser(usersData.role);
-      setloggedInUserData(usersData.data);
-    }
-  }, []);
-  const handleLogin = (userEmail, userPassword) => {
-    if (userEmail === "admin1@company.com" && userPassword === "123") {
-      const admin = {
-        name: "love parihar",
-        email: "admin1@company.com",
-      };
+    const fetchData = async () => {
+      try {
+        if (!loading && userData) {
+          const loggedInUser = localStorage.getItem("loggedInUser");
 
+          if (loggedInUser) {
+            const { role, id } = JSON.parse(loggedInUser);
+            if (role === "employee") {
+              const currEmployee = userData.find((emp) => emp.id === id);
+
+              if (currEmployee) {
+                setUser("employee");
+                setloggedInUserData(currEmployee);
+              }
+            }
+
+            if (role == "admin") {
+              setUser("admin");
+              setloggedInUserData({ role: "admin" });
+            }
+          }
+        }
+      } catch (err) {
+        console.log("missing data", err);
+      }
+    };
+    fetchData();
+  }, [loading, userData]);
+
+  const handleLogin = async (userEmail, userPassword) => {
+    const res = await fetch("http://localhost:5000/employees");
+    const employees = await res.json();
+
+    const resAdmin = await fetch("http://localhost:5000/admin");
+    const admins = await resAdmin.json();
+
+    const admin = admins.find(
+      (e) => e.email === userEmail && e.password === userPassword,
+    );
+
+    if (admin) {
       setUser("admin");
       setloggedInUserData(admin);
       localStorage.setItem(
         "loggedInUser",
-        JSON.stringify({ role: "admin", data: admin }),
+        JSON.stringify({ role: "admin", id: admin.id }),
       );
-    } else if (userData) {
-      const employee = userData.find(
-        (e) => e.email == userEmail && e.password == userPassword,
+      return;
+    }
+    const employee = employees.find(
+      (emp) => emp.email === userEmail && emp.password === userPassword,
+    );
+
+    if (employee) {
+      setUser("employee");
+      setloggedInUserData(employee);
+
+      localStorage.setItem(
+        "loggedInUser",
+        JSON.stringify({ role: "employee", id: employee.id }),
       );
-      if (employee) {
-        setUser("employee");
-        setloggedInUserData(employee);
-        localStorage.setItem(
-          "loggedInUser",
-          JSON.stringify({ role: "employee", data: employee }),
-        );
-      } else {
-        alert("Invalid credentials:");
-      }
+    } else {
+      alert("Invalid credentials:");
     }
   };
-
+  if (loading) return <h2>loading....</h2>;
   return (
     <>
       {!user && <Login handleLogin={handleLogin} />}

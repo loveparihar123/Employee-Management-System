@@ -1,28 +1,30 @@
-import React, { createContext, useEffect, useState } from "react";
-import { getLocalStorage, setLocalStorage } from "../utils/Localstorage";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 
 export const authContext = createContext();
 const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const { Employees } = getLocalStorage();
-    setUserData(Employees);
+    const fetchEmployees = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/employees");
+        const data = await res.json();
+        setUserData(data);
+      } catch (err) {
+        console.log("missing data :", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEmployees();
   }, []);
 
-  //to update the userdata that should be reflect in local storage.
-  useEffect(() => {
-    if (userData) {
-      localStorage.setItem("Employees", JSON.stringify(userData));
-    }
-  }, [userData]);
-  return (
-    <div>
-      <authContext.Provider value={[userData, setUserData]}>
-        {children}
-      </authContext.Provider>
-    </div>
-  );
+  const value = useMemo(() => {
+    return [userData, setUserData, loading];
+  }, [userData, loading]);
+
+  return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };
 
 export default AuthProvider;

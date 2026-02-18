@@ -1,0 +1,335 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aniket Baghel",
+      "email": "employee1@company.com",
+      "password": "123",
+      "tasks": [
+        {
+          "id": 101,
+          "title": "Build Login Page",
+          "description": "Create login UI using React",
+          "date": "2026-01-10",
+          "category": "Frontend",
+          "status": "new",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-10T10:00:00.000Z",
+              "by": "Admin"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "title": "Fix Header Bug",
+          "description": "Resolve responsive header issue",
+          "date": "2026-01-05",
+          "category": "Bug Fix",
+          "status": "completed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-10T11:00:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-10T13:30:00.000Z",
+              "by": "Employee"
+            },
+            {
+              "action": "completed",
+              "at": "2026-01-15T14:50:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        },
+        {
+          "id": 103,
+          "title": "Payment API",
+          "description": "Integrate payment gateway",
+          "date": "2026-01-03",
+          "category": "Backend",
+          "status": "failed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-15T13:10:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-16T15:30:00.000Z",
+              "by": "Employee"
+            },
+            {
+              "action": "failed",
+              "at": "2026-01-17T16:30:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Manish Gola",
+      "email": "employee2@company.com",
+      "password": "123",
+      "tasks": [
+        {
+          "id": 104,
+          "title": "Design Dashboard",
+          "description": "Create employee dashboard layout",
+          "date": "2026-01-11",
+          "category": "UI/UX",
+          "status": "failed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-20T12:00:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-02-18T07:48:30.596Z",
+              "by": "employee"
+            },
+            {
+              "action": "failed",
+              "at": "2026-02-18T07:48:32.138Z",
+              "by": "employee"
+            }
+          ]
+        },
+        {
+          "id": 105,
+          "title": "Write Tests",
+          "description": "Add unit tests for auth module",
+          "date": "2026-01-06",
+          "category": "Testing",
+          "status": "completed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-12T11:15:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-14T12:40:00.000Z",
+              "by": "Employee"
+            },
+            {
+              "action": "completed",
+              "at": "2026-01-16T14:00:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "title": "Optimize Code",
+          "description": "Improve app performance",
+          "date": "2026-01-14",
+          "category": "Optimization",
+          "status": "completed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-10T10:00:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-11T11:30:00.000Z",
+              "by": "Employee"
+            },
+            {
+              "action": "completed",
+              "at": "2026-01-14T16:00:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        },
+        {
+          "id": 1771398835671,
+          "title": "make a website",
+          "date": "2026-02-25",
+          "selectEmployeeId": "2",
+          "category": "design",
+          "description": "how you are design the body what you have build inside you",
+          "status": "completed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-02-18T07:13:55.671Z",
+              "by": "admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-02-18T07:48:35.728Z",
+              "by": "employee"
+            },
+            {
+              "action": "completed",
+              "at": "2026-02-18T07:48:36.805Z",
+              "by": "employee"
+            }
+          ]
+        },
+        {
+          "id": 1771403057128,
+          "title": "make ",
+          "date": "2026-02-20",
+          "selectEmployeeId": "2",
+          "category": "dsd",
+          "description": "dd",
+          "status": "new",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-02-18T08:24:17.128Z",
+              "by": "admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Sumit Sharma",
+      "email": "employee3@company.com",
+      "password": "123",
+      "tasks": [
+        {
+          "id": 107,
+          "title": "Create API",
+          "description": "Develop REST API for tasks",
+          "date": "2026-01-09",
+          "category": "Backend",
+          "status": "failed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-10T13:00:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-16T15:30:00.000Z",
+              "by": "Employee"
+            },
+            {
+              "action": "failed",
+              "at": "2026-01-16T17:00:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        },
+        {
+          "id": 1771401213543,
+          "title": "make a front page",
+          "date": "2026-02-18",
+          "selectEmployeeId": "3",
+          "category": "design",
+          "description": "I want to make you a front page of my website ................",
+          "status": "completed",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-02-18T07:53:33.543Z",
+              "by": "admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-02-18T07:53:53.532Z",
+              "by": "employee"
+            },
+            {
+              "action": "completed",
+              "at": "2026-02-18T07:53:57.385Z",
+              "by": "employee"
+            }
+          ]
+        },
+        {
+          "id": 1771404691591,
+          "title": "design",
+          "date": "2026-02-19",
+          "category": "design",
+          "description": "you have to create a paper design",
+          "status": "new",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-02-18T08:51:31.591Z",
+              "by": "admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Sonu Sharma",
+      "email": "employee4@company.com",
+      "password": "123",
+      "tasks": [
+        {
+          "id": 110,
+          "title": "Create Forms",
+          "description": "Build task creation forms",
+          "date": "2026-01-13",
+          "category": "Frontend",
+          "status": "new",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-18T10:00:00.000Z",
+              "by": "Admin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Shivam Rathoree",
+      "email": "employee5@company.com",
+      "password": "123",
+      "tasks": [
+        {
+          "id": 113,
+          "title": "Research Tools",
+          "description": "Research best tools for project",
+          "date": "2026-01-08",
+          "category": "Research",
+          "status": "active",
+          "history": [
+            {
+              "action": "new",
+              "at": "2026-01-10T10:20:00.000Z",
+              "by": "Admin"
+            },
+            {
+              "action": "active",
+              "at": "2026-01-22T11:20:00.000Z",
+              "by": "Employee"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "admin": [
+    {
+      "id": "1",
+      "name": "love parihar",
+      "email": "admin1@company.com",
+      "password": "123"
+    }
+  ]
+}

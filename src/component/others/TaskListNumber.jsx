@@ -1,7 +1,9 @@
 import { calculateTaskCount } from "../../utils/taskUtils";
 
 const TaskListNumber = ({ data }) => {
-  const counts = calculateTaskCount(data.tasks);
+  console.log(data?.tasks);
+  const counts = calculateTaskCount(data?.tasks || []);
+
   return (
     <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-5">
       <div className="bg-red-400 py-6 px-6 rounded-xl">

@@ -8,8 +8,8 @@ import { TASK_STATUS } from "../../../../constants/taskStatus";
 import { authContext } from "../../Context/AuthProvider";
 
 const TaskList = ({ data, setUserData }) => {
-  const handleAccept = (taskId) => {
-    const updateTasks = data.tasks.map((task) =>
+  const handleAccept = async (taskId) => {
+    const updateTasks = data?.tasks.map((task) =>
       task.id === taskId
         ? {
             ...task,
@@ -26,15 +26,33 @@ const TaskList = ({ data, setUserData }) => {
         : task,
     );
 
-    setUserData((prev) =>
-      prev.map((emp) =>
-        emp.id === data.id ? { ...emp, tasks: updateTasks } : emp,
-      ),
-    );
+    const updateEmployee = {
+      ...data,
+      tasks: updateTasks,
+    };
+
+    try {
+      await fetch(`http://localhost:5000/employees${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          tasks: updateTasks,
+        }),
+      });
+
+      setUserData((prev) =>
+        prev.map((emp) => (emp.id === data.id ? updateEmployee : emp)),
+      );
+    } catch (err) {
+      console.log("data error:", err);
+    }
   };
 
-  const handleCompleted = (taskId) => {
-    const updateTasks = data.tasks.map((task) =>
+  const handleCompleted = async (taskId) => {
+    const updateTasks = data?.tasks?.map((task) =>
       taskId === task.id
         ? {
             ...task,
@@ -51,15 +69,32 @@ const TaskList = ({ data, setUserData }) => {
         : task,
     );
 
-    setUserData((prev) =>
-      prev.map((emp) =>
-        emp.id === data.id ? { ...emp, tasks: updateTasks } : emp,
-      ),
-    );
+    const updateEmployee = {
+      ...data,
+      tasks: updateTasks,
+    };
+
+    try {
+      await fetch(`http://localhost:5000/employees/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          tasks: updateTasks,
+        }),
+      });
+
+      setUserData((prev) =>
+        prev.map((emp) => (emp.id === data?.id ? updateEmployee : emp)),
+      );
+    } catch (err) {
+      console.log("data error :", err);
+    }
   };
 
-  const handleFailed = (taskId) => {
-    const updateData = data.tasks.map((task) =>
+  const handleFailed = async (taskId) => {
+    const updateData = data?.tasks?.map((task) =>
       taskId === task.id
         ? {
             ...task,
@@ -76,11 +111,28 @@ const TaskList = ({ data, setUserData }) => {
         : task,
     );
 
-    setUserData((prev) =>
-      prev.map((emp) =>
-        emp.id === data.id ? { ...emp, tasks: updateData } : emp,
-      ),
-    );
+    const updateEmployee = {
+      ...data,
+      tasks: updateData,
+    };
+
+    try {
+      await fetch(`http://localhost:5000/employees/${data.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          tasks: updateData,
+        }),
+      });
+
+      setUserData((prev) =>
+        prev.map((emp) => (emp.id === data?.id ? updateEmployee : emp)),
+      );
+    } catch (err) {
+      console.log("data error:", err);
+    }
   };
 
   return (
@@ -88,7 +140,7 @@ const TaskList = ({ data, setUserData }) => {
       id="taskList"
       className="h-[55%] overflow-x-auto no-scrollbar auto flex  items-center justify-start flex-nowrap gap-5 w-full mt-10"
     >
-      {data.tasks.map((task, idx) => {
+      {data?.tasks?.map((task, idx) => {
         if (task.status === TASK_STATUS.NEW) {
           return <NewTask key={task.id} data={task} onAccept={handleAccept} />;
         }
