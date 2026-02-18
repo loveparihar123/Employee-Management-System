@@ -203,74 +203,7 @@
       "name": "Sumit Sharma",
       "email": "employee3@company.com",
       "password": "123",
-      "tasks": [
-        {
-          "id": 107,
-          "title": "Create API",
-          "description": "Develop REST API for tasks",
-          "date": "2026-01-09",
-          "category": "Backend",
-          "status": "failed",
-          "history": [
-            {
-              "action": "new",
-              "at": "2026-01-10T13:00:00.000Z",
-              "by": "Admin"
-            },
-            {
-              "action": "active",
-              "at": "2026-01-16T15:30:00.000Z",
-              "by": "Employee"
-            },
-            {
-              "action": "failed",
-              "at": "2026-01-16T17:00:00.000Z",
-              "by": "Employee"
-            }
-          ]
-        },
-        {
-          "id": 1771401213543,
-          "title": "make a front page",
-          "date": "2026-02-18",
-          "selectEmployeeId": "3",
-          "category": "design",
-          "description": "I want to make you a front page of my website ................",
-          "status": "completed",
-          "history": [
-            {
-              "action": "new",
-              "at": "2026-02-18T07:53:33.543Z",
-              "by": "admin"
-            },
-            {
-              "action": "active",
-              "at": "2026-02-18T07:53:53.532Z",
-              "by": "employee"
-            },
-            {
-              "action": "completed",
-              "at": "2026-02-18T07:53:57.385Z",
-              "by": "employee"
-            }
-          ]
-        },
-        {
-          "id": 1771404691591,
-          "title": "design",
-          "date": "2026-02-19",
-          "category": "design",
-          "description": "you have to create a paper design",
-          "status": "new",
-          "history": [
-            {
-              "action": "new",
-              "at": "2026-02-18T08:51:31.591Z",
-              "by": "admin"
-            }
-          ]
-        }
-      ]
+      "tasks": []
     },
     {
       "id": "4",

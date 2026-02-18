@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Headers from "./Headers";
 import { authContext } from "../../Context/AuthProvider";
 
-const TaskHistory = ({ employeeId }) => {
+const TaskHistory = ({ employeeId, onDelete }) => {
   const [userData, setUserData] = useContext(authContext);
   const employee = userData.find((emp) => emp.id === employeeId);
   const tasks = employee.tasks || [];
@@ -17,7 +17,7 @@ const TaskHistory = ({ employeeId }) => {
           <p className="text-gray-400">No tasks found</p>
         ) : (
           tasks.map((task) => (
-            <div key={task.taskId} className="mb-3 p-4 bg-[#2A2A2A] rounded-md">
+            <div key={task.id} className="mb-3 p-4 bg-[#2A2A2A] rounded-md">
               <div className="flex justify-between">
                 <h3 className="font-medium">{task.title}</h3>
                 {task.status === "failed" && (
@@ -33,9 +33,16 @@ const TaskHistory = ({ employeeId }) => {
                   <span className="text-sm text-green-400">{task.status}</span>
                 )}
               </div>
-
+              {/* delete button */}
+              <button
+                onClick={() => {
+                  onDelete(task.id);
+                }}
+                className="text-xs bg-red-600 hover:bg-red-700 px-3 py-1 rounded cursor-pointer"
+              >
+                delete
+              </button>
               <p className="text-sm mt-2 text-gray-300">{task.description}</p>
-
               {/* 🔥 TASK HISTORY */}
               <div className="mt-3 border-t border-gray-600 pt-3">
                 <p className="text-sm font-semibold text-gray-400 mb-2">
