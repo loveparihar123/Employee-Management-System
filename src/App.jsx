@@ -10,7 +10,7 @@ function App() {
   const [userData, setUserData] = useContext(authContext);
 
   useEffect(() => {
-    setLocalStorage();
+    //setLocalStorage();
     const loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
       const usersData = JSON.parse(loggedInUser);
