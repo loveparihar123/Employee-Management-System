@@ -1,4 +1,4 @@
-# 🚀 Learn EMS – Role-Based Employee Management System
+#Learn EMS – Role-Based Employee Management System
 
 Learn EMS is a role-based Employee Management System built with React that simulates a real-world organizational task workflow. The application provides separate dashboards for Admin and Employees, enabling structured task assignment, tracking, and status management.
 
@@ -6,7 +6,7 @@ This project demonstrates practical frontend architecture, authentication handli
 
 ---
 
-## 📖 Project Description
+##Project Description
 
 Learn EMS is designed to replicate how organizations manage employee tasks internally.
 
@@ -25,28 +25,28 @@ This project reflects real-world frontend development practices and can be easil
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-- 🔐 Login-based authentication
-- 👨‍💼 Admin Dashboard
+-- Login-based authentication
+-- Admin Dashboard
   - Create new tasks
   - Monitor all tasks
   - Track employee task performance
-- 👨‍💻 Employee Dashboard
+-- Employee Dashboard
   - View assigned tasks
   - Accept tasks
   - Mark tasks as completed
   - Mark tasks as failed
   - View task history
-- 📊 Task categorization (New, Accepted, Completed, Failed)
-- 🌐 Mock backend integration using JSON Server
-- 💾 Persistent state handling with localStorage
-- 🧠 Context API for global state management
-- 📂 Modular and scalable project structure
+-- Task categorization (New, Accepted, Completed, Failed)
+  Mock backend integration using JSON Server
+- Persistent state handling with localStorage
+- Context API for global state management
+- Modular and scalable project structure
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Frontend**
 
@@ -62,7 +62,7 @@ This project reflects real-world frontend development practices and can be easil
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 learn-ems/
 │
